@@ -1,0 +1,262 @@
+@import '../../App.scss';
+
+.welcome {
+    height: 100vh;
+    @include dflex-dir(column, space-between);
+    .forest {
+        animation: fade-in-down 1.5s ease-in-out forwards;
+        position: relative;
+        height: 600px;
+        background-image: url('../../../public/Images/Graphics/forest.png');
+        background-size: contain;
+        background-repeat: repeat-x;
+        padding: 0px 50px 0px 50px;
+
+        display: flex;
+        justify-content: space-between;
+        .left-side, .right-side {
+            padding-top: 30px;
+            a {
+                font-family: MontserratMedium;
+                font-size: 16px;
+                color: white;
+                text-decoration: none;
+                padding-right: 50px;
+                text-transform: uppercase;
+            }
+        }
+        .right-side {
+            a {
+                padding: 0;
+                display: flex;
+                align-items: center;
+                img {
+                    width: 21px;
+                    height: auto;
+                    padding: 0 10px 4px 0;
+                }
+            }
+        }
+        .logo {
+            position: absolute;
+            top: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 35px;
+            width: auto;
+            img {
+                height: 100%;
+            }
+        }
+    }
+    .home-body {
+        position: relative;
+        height: 100%;
+        @include dflex-dir(column, space-between);
+        .intro {
+            animation: fade-in-right 1.5s ease-in-out forwards;
+            padding: 15px 50px 0px 10%;
+            p {
+                font-family: MontserratSemiBold;
+                font-size: 34px;
+                color: black;
+            }
+            a {
+                background-color: white;
+                text-decoration: none;
+                border: 2px solid black;
+                border-radius: 0.5rem;
+                padding: 10px 40px;
+                font-family: MontserratSemiBold;
+                font-size: 18px;
+                color: black;
+                background: linear-gradient(to left, #ffffff 50%, red 50%);
+                background-size: 220%;
+                background-position: right;
+                transition: all 0.3s ease-in;
+                cursor: pointer;
+
+                &:hover {
+                    background-position: left;
+                    border-radius: 0;
+                }
+            }
+        }
+        img {
+            position: absolute;
+            width: 250px;
+            height: auto;
+            animation: plane-take-off 2s ease-in-out forwards;
+        }
+        .city {
+            animation: fade-in-up 1.5s ease-in-out forwards;
+            height: 262px;
+            width: auto;
+            background-image: url('../../../public/Images/Graphics/city.png');
+            background-size: contain;
+            background-repeat: repeat-x;
+            background-position: bottom;
+        }
+        .text-decor {
+            animation: fade-in 2s ease-in-out forwards;
+            position: absolute;
+            top: 50%;
+            right: -70px;
+            transform: rotate(-90deg) translateX(80%);
+            font-family: MicrosoftYiBaiti;
+            font-size: 40px;
+            text-transform: uppercase;
+            letter-spacing: 18px;
+            opacity: 70%;
+        }
+    }
+    .footer {
+        animation: fade-in-up 1.5s ease-in-out forwards;
+        background-color: black;
+        width: 100%;
+        height: 400px;
+        position: relative;
+        padding-top: 50px;
+        .social-link {
+            @include dflex-dir(row, center);
+            a {
+                text-decoration: none;
+                background-color: white;
+                border-radius: 50%;
+                width: 25px;
+                height: 25px;
+                @include dflex(center, center);
+                margin: 0 10px 0 10px;
+                transition: all 0.2s ease-in;
+                img {
+                    width: 15px;
+                    height: 15px;
+                }
+                &:hover {
+                    background-color: #aaaaaa;
+                }
+            }
+        }
+        .tab-menu {
+            @include dflex-dir(row, center);
+            margin: 30px;
+            a {
+                text-decoration: none;
+                text-transform: capitalize;
+                font-family: MontserratRegular;
+                font-size: 15px;
+                color: white;
+                margin: 0 15px 0 15px;
+                opacity: 80%;
+            }
+        }
+        .copyright {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            hr {
+                text-align: center;
+                background-color: white;
+                border: none;
+                height: 1px;
+                width: 80%;
+                opacity: 60%;
+            }
+            p {
+                text-align: center;
+                font-family: OpenSans;
+                font-size: 12px;
+                color: white;
+                opacity: 70%;
+                padding: 10px 0px 15px 0px;
+            }
+        }
+    }
+}
+
+// Animation
+@keyframes plane-take-off {
+    0% {
+        opacity: 0;
+        top: 60%;
+        right: 35%;
+    }
+    60% {
+        opacity: 1;
+        top: 21%;
+        right: 17%;
+    }
+    100% {
+        top: 25%;
+        right: 20%;
+    }
+}
+@keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-12em);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(12em);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fade-in-right {
+    0% {
+        opacity: 0;
+        transform: translateX(-22em);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 960px) {
+    .left-side > a {
+        display: none;
+    }
+    .forest {
+        background-size: 150%!important;
+    }
+}
+@media (max-width: 625px) {
+    .forest {
+        background-size: 200%!important;
+        padding: 0px 10px 0px 10px!important;
+    }
+    .right-side span {
+        display: none;
+    }
+    .home-body > img {
+        opacity: 0;
+    }
+    .text-decor {
+        display: none;
+    }
+    
+}
+@media (max-width: 440px) {
+    .forest {
+        background-size: 300%!important;
+    }
+}

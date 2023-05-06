@@ -1,0 +1,116 @@
+@import '../../App.scss';
+
+@mixin tab-button($img-width) {
+    width: 100%;
+    @include dflex(center, center);
+    flex-wrap: wrap;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    transition: all 0.2s ease-in;
+    opacity: 50%;
+    margin-bottom: 15px;
+    cursor: pointer;
+    .tab-icon {
+        pointer-events: none;
+        padding-top: 8px;
+        & > img {
+            width: $img-width;
+            height: auto;
+        }
+    }
+    p {
+        font-family: MontserratMedium;
+        font-size: 11px;
+        color: white; 
+        margin-top: 0;
+        pointer-events: none;
+    }
+    &:hover {
+        background-color: #2b2b2b;
+    }
+    &.active {
+        opacity: 1;
+    }
+}
+
+.home {
+    background-color: #131313;
+    min-height: 100vh;
+    @include dflex-dir(row, flex-start);
+    overflow: hidden;
+    .tab-management {
+        padding: 0 10px 0 10px;
+        width: 100px;
+        height: 100vh;  
+        @include dflex-dir(column, space-between);
+        & > div {
+            &:nth-child(1) {
+                .logo {
+                    width: 80%;
+                    height: auto;
+                    margin-bottom: 50px;
+                    padding: 30px 10px 10px 10px;
+                }
+                button {
+                    @include tab-button(28%);
+                }
+                #allchats {
+                    @include tab-button(35%);
+                }
+                hr {
+                    border: none;
+                    background-color: white;
+                    width: 50%;
+                    height: 1px;
+                    opacity: 50%;
+                    margin-bottom: 15px;
+                }
+            }
+            &:nth-child(2) {
+                button {
+                    @include tab-button(28%);
+                    img {
+                        animation: roll-reverse 1s ease-in-out;
+                    }
+                    &:hover {
+                        background-color: 0;
+                        opacity: 1;
+                        img {
+                            animation: roll 1s ease-in-out forwards;
+                        }
+                    }
+                    &.active {
+                        opacity: 1;   
+                    }
+                }
+            }
+        }
+        
+    }
+    .content {
+        background-color: #252930;
+        border-top-left-radius: 2rem;
+        border-bottom-left-radius: 2rem;
+        width: calc(100% - 100px);
+        height: 100vh;
+    }
+}
+
+@keyframes roll {
+    0% {
+        transform: rotate(0deg);
+    }     
+    100% {
+        transform: rotate(300deg);
+    }   
+}
+@keyframes roll-reverse {
+    0% {
+        transform: rotate(300deg);
+    }     
+    100% {
+        transform: rotate(0deg);
+    }   
+}

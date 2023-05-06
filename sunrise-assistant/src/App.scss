@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+}
+
+@mixin dflex-dir($direction, $jcontent) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $jcontent;
+}
+@mixin dflex($jcontent, $align) {
+    display: flex;
+    justify-content: $jcontent;
+    align-items: $align;
+}
+
+// Font
+@font-face {
+    font-family: MontserratRegular;
+    src: url('../public/Fonts/Montserrat/Montserrat-Regular.ttf');
+}
+@font-face {
+    font-family: MontserratMedium;
+    src: url('../public/Fonts/Montserrat/Montserrat-Medium.ttf');
+}
+@font-face {
+    font-family: MontserratSemiBold;
+    src: url('../public/Fonts/Montserrat/Montserrat-SemiBold.ttf');
+}
+@font-face {
+    font-family: MontserratBold;
+    src: url('../public/Fonts/Montserrat/Montserrat-Bold.ttf');
+}
+@font-face {
+    font-family: OpenSans;
+    src: url('../public/Fonts/Open_Sans/OpenSans.ttf');
+}
+@font-face {
+    font-family: MicrosoftYiBaiti;
+    src: url('../public/Fonts/MicrosoftYiBaiti/msyi.ttf');
+}

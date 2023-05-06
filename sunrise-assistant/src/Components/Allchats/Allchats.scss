@@ -1,0 +1,367 @@
+@import '../../App.scss';
+
+.allchats {
+    height: 100%;
+    width: 100%;
+    @include dflex-dir(row, flex-start);
+
+    .chatlist {
+        padding: 30px 20px 30px 20px;
+        width: 300px;
+        height: 100%;
+
+        .search-chat {
+            width: 90%;
+            height: 50px;
+            margin: auto;
+            border: none;
+            border-radius: 1rem;
+            background-color: #2e343d;
+            padding: 0;
+            position: relative;
+            margin-bottom: 30px;
+
+            .overlay {
+                position: absolute;
+                top: 53%;
+                left: 20px;
+                @include dflex(flex-start, center);
+                transform: translateY(-50%);
+
+                i,
+                span {
+                    position: relative;
+                    color: white;
+                    opacity: 0.6;
+                    margin-right: 8px;
+                }
+
+                i {
+                    font-size: 16px;
+                }
+
+                span {
+                    font-family: MontserratRegular;
+                    margin-bottom: 5px;
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .chattab-container {
+            height: calc(100% - 130px);
+            width: 100%;
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                display: none;
+                /* Hide scrollbar for Chrome, Safari and Opera */
+            }
+
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+
+            .chattab {
+                background-color: transparent;
+                border-radius: 1rem;
+                width: 100%;
+                height: 80px;
+                margin-bottom: 10px;
+                border: none;
+                outline: none;
+                @include dflex(flex-start, center);
+                padding: 2px 10px 2px 10px;
+                transition: all 0.2s ease-in;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #2e343d;
+                }
+
+                &.active {
+                    background-color: #2e343d;
+                }
+
+                img {
+                    width: auto;
+                    height: 80%;
+                    border-radius: 0.75rem;
+                    pointer-events: none;
+                }
+
+                .chattab-detail {
+                    width: calc(100% - 90px);
+                    height: 80%;
+                    margin-left: 16px;
+                    @include dflex-dir(column, space-evenly);
+                    pointer-events: none;
+
+                    .chattab-detail-title {
+                        @include dflex-dir(row, space-between);
+
+                        span {
+                            &:nth-child(1) {
+                                font-family: MontserratMedium;
+                                font-size: 14px;
+                                color: white;
+                                text-align: left;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                max-width: 80%;
+                            }
+
+                            &:nth-child(2) {
+                                font-family: MontserratMedium;
+                                font-size: 11px;
+                                color: white;
+                                opacity: 70%;
+                                margin-top: 2px;
+                            }
+                        }
+                    }
+
+                    .chattab-detail-content {
+                        @include dflex-dir(row, space-between);
+
+                        span {
+                            font-family: OpenSans;
+                            font-size: 12px;
+                            color: white;
+                            opacity: 70%;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            max-width: 90%;
+                        }
+
+                        i {
+                            color: white;
+                            font-size: 14px;
+                            opacity: 70%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .chatview {
+        width: calc(100% - 400px);
+        height: 100%;
+        padding: 0 30px 0 40px;
+        @include dflex-dir(column, flex-start);
+
+        .chatview-title {
+            width: 100%;
+            max-height: 100px;
+            padding: 20px 0px 30px 0px;
+            @include dflex-dir(row, space-between);
+
+            .title {
+                p {
+                    &:nth-child(1) {
+                        font-family: OpenSans;
+                        font-size: 16px;
+                        color: white;
+                        font-weight: 700;
+                        margin-bottom: 0;
+                    }
+
+                    &:nth-child(2) {
+                        font-family: OpenSans;
+                        font-size: 12px;
+                        color: white;
+                        opacity: 60%;
+                        margin-top: 0;
+                    }
+                }
+            }
+
+            .btn-container {
+                @include dflex(center, center);
+
+                button {
+                    background-color: transparent;
+                    color: white;
+                    opacity: 60%;
+                    border: none;
+                    cursor: pointer;
+                    transition: all 0.2s ease-in;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .chatview-content {
+            width: 100%;
+            max-height: calc(100% - 180px);
+
+            .dialog-field {
+                @include dflex-dir(column, flex-end);
+                flex-grow: 1;
+                width: 100%;
+                height: 99%;
+                margin-bottom: 10px;
+                overflow-y: scroll;
+                &::-webkit-scrollbar {
+                    display: none;
+                    /* Hide scrollbar for Chrome, Safari and Opera */
+                }
+    
+                -ms-overflow-style: none;
+                /* IE and Edge */
+                scrollbar-width: none;
+                /* Firefox */
+                .dialog-content {
+                    height: 100%;
+                    .user-dialog {
+                        width: 100%;
+                        @include dflex(flex-end, flex-end);
+                        margin: 15px 0 15px 0;
+                        position: relative;
+    
+                        .bubble-container {
+                            max-width: 70%;
+                            margin: 0 15px 5px 0;
+    
+                            .bubble {
+                                position: relative;
+                                background-color: #6b8afd;
+                                border-radius: 0.75rem;
+                                border-bottom-right-radius: 0;
+                                @include dflex(center, center);
+                                padding: 16px 30px;
+                                color: #e0e3e6;
+                                font-family: OpenSans;
+                                font-size: 14px;
+                                font-weight: 500;
+    
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    bottom: 0px;
+                                    right: -10px;
+                                    width: 0;
+                                    height: 0;
+                                    border: 10px solid #6b8afd;
+                                    border-right-color: transparent;
+                                    border-top-color: transparent;
+                                    border-radius: 0.2rem;
+                                    transform: skewX(-20deg) rotate(5deg);
+                                }
+                            }
+                        }
+    
+                        img {
+                            width: auto;
+                            height: 40px;
+                            border-radius: 0.75rem;
+                        }
+                    }
+                    .assistant-dialog {
+                        width: 100%;
+                        @include dflex(flex-start, flex-end);
+                        margin: 15px 0 15px 0;
+                        position: relative;
+    
+                        .bubble-container {
+                            max-width: 70%;
+                            margin: 0 0px 2px 15px;
+    
+                            .bubble {
+                                position: relative;
+                                background-color: #2e343d;
+                                border-radius: 0.75rem;
+                                border-bottom-left-radius: 0;
+                                @include dflex(center, center);
+                                padding: 16px 30px;
+                                color: #e0e3e6;
+                                font-family: OpenSans;
+                                font-size: 14px;
+                                font-weight: 500;
+    
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    bottom: 0px;
+                                    left: -10px;
+                                    width: 0;
+                                    height: 0;
+                                    border: 10px solid #2e343d;
+                                    border-left-color: transparent;
+                                    border-top-color: transparent;
+                                    border-radius: 0.2rem;
+                                    transform: skewX(20deg) rotate(-5deg);
+                                }
+                            }
+                        }
+    
+                        img {
+                            width: auto;
+                            height: 40px;
+                            border-radius: 0.75rem;
+                        }
+                    }
+                }
+            }
+
+            .user-interact-field {
+                @include dflex-dir(row, flex-start);
+                height: 50px;
+                margin-bottom: 20px;
+
+                .msg-container {
+                    @include dflex-dir(row, flex-start);
+                    flex-grow: 1;
+                    position: relative;
+
+                    input {
+                        font-family: OpenSans;
+                        font-size: 14px;
+                        color: white;
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        background-color: transparent;
+                        border: none;
+                        outline: none;
+                        padding: 0px 20px 0px 20px;
+                    }
+
+                    .yourmsg-container {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        opacity: 70%;
+                        color: white;
+                        font-size: 14px;
+
+                        i {
+                            margin-right: 10px;
+                        }
+
+                        span {
+                            font-family: OpenSans;
+                        }
+                    }
+                }
+
+                &>button {
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    @include dflex(center, center);
+                    color: white;
+                    font-size: 15px;
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
