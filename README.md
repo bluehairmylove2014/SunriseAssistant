@@ -1,2 +1,3 @@
 # SunriseAssistant  
-not complete
+Pause permanant
+
