@@ -1,3 +1,2 @@
 # SunriseAssistant  
-Permanent pause
-
+The process has been permanently postponed.
