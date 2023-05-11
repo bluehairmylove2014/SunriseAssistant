@@ -1,3 +1,3 @@
 # SunriseAssistant  
-Pause permanant
+Pause permanent
 
